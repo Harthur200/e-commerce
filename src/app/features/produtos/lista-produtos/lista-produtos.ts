@@ -52,6 +52,10 @@ export class ListaProdutos {
     effect(() => {
       console.log('Valor total atualizado: ', this.valorTotal());
     });
-    effect(() => {  });
+    effect(() => {
+      if (typeof document !== 'undefined'){
+        document.title = `(${this.totalProdutos()}) - loja do arthurzinho gamaplayes`; 
+      }
+    });
   }
 }
