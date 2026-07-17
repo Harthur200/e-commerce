@@ -32,7 +32,15 @@ export class ListaProdutos {
    //!função que calcula o valor total do produtos usando metodo computed()
    valorTotal = computed(() =>
   {return this.produtos().reduce((total, item) =>
-  total + item.preco,0
-  )}
-  );
+  total + item.preco,0)});
+  //!função para substituir a lista atual usando o metod set()
+  substituirProdutos(){
+    this.produtos.set([
+      {nome:'teclado', preco: 50 },
+      {nome:'mouse', preco: 15 },
+      {nome:'monitor', preco: 500 },
+      {nome:'desktop', preco: 1500 },
+      {nome:'headset', preco: 30 },
+    ]);
+  }
 }
