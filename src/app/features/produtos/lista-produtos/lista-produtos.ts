@@ -2,9 +2,10 @@ import { Component} from '@angular/core';
 import { Produto } from '../produto/produto';
 import {signal} from '@angular/core';
 import { computed } from '@angular/core';
+import { PrecoFormatadoPipe } from '../../../shared/pipes/preco-formatado-pipe';
 @Component({
   selector: 'app-lista-produtos',
-  imports: [Produto],
+  imports: [Produto, PrecoFormatadoPipe],
   templateUrl: './lista-produtos.html',
   styleUrl: './lista-produtos.css',
 })
@@ -26,7 +27,12 @@ export class ListaProdutos {
         {nome:"playstation 5", preco: 3000},
       ]);
     }
-    //!Função que contabiliza a quantidade de produtos na lista
-   totalProduto = computed(() => this.produtos(). length);
+    //!Função que contabiliza a quantidade de produtos na lista com metodo computed()
+   totalProdutos = computed(() => this.produtos(). length);
+   //!função que calcula o valor total do produtos usando metodo computed()
+   valorTotal = computed(() =>
+  {return this.produtos().reduce((total, item) =>
+  total + item.preco,0
+  )}
+  );
 }
-
