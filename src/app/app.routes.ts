@@ -5,16 +5,16 @@ export const routes: Routes = [
     loadComponent: () => import('./features/home/home/home').then((m) => m.Home),
   },
   {
-    path: 'produtos',
+    path: 'produtos',//!router para produtos
     loadComponent: () =>
       import('./features/produtos/lista-produtos/lista-produtos').then((m) => m.ListaProdutos),
   },
   {
-    path: 'carrinho',
+    path: 'carrinho',//!router para carrinho
     loadComponent: () => import('./features/carrinho/carrinho/carrinho').then((m) => m.Carrinho),
   },
   {
-    path: '**',
+    path: '**', //!router para página não encontrada
     redirectTo: 'home',
   },
 ];
